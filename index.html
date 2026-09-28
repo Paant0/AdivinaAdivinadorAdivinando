@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#100d0e">
+    <title>Adivina el tiempo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="logic.js" defer></script>
+  </head>
+  <body>
+    <main class="game" id="game" tabindex="-1">
+      <p class="eyebrow">Prueba de precisión</p>
+      <h1>Adivina el tiempo</h1>
+      <p class="intro">Pulsa iniciar y detén el cronómetro justo en el momento indicado, el cronómetro se ocultará durante la ronda y el botón permanecerá visible para detenerlo.</p>
+
+      <section class="target" aria-label="Tiempo objetivo">
+        <p class="label">Tu objetivo</p>
+        <p class="target-time"><span id="target">5.00</span> <span>seg</span></p>
+      </section>
+
+      <p class="clock" id="clock" aria-label="Tiempo transcurrido" aria-live="off">0.00</p>
+      <button class="action" id="action" type="button">Iniciar</button>
+      <p class="hint" id="hint" aria-live="polite">¿La puedes clavar?</p>
+
+      <section class="result" id="result" aria-live="polite" hidden>
+        <p class="result-title" id="result-title"></p>
+        <p class="result-detail" id="result-detail"></p>
+      </section>
+
+      <div class="legend" aria-label="Niveles de precisión">
+        <span class="good"><i></i>Bien: hasta 0.10 s</span>
+        <span class="okay"><i></i>Cerca: hasta 0.50 s</span>
+        <span class="bad"><i></i>Lejos: más de 0.50 s</span>
+      </div>
+    </main>
+  </body>
+</html>
