@@ -174,42 +174,99 @@ h1 {
 .result {
   margin-top: 22px;
   padding: 17px;
-  border: 1px solid var(--result-border);
+  border: 1px solid #493136;
   border-radius: 16px;
-  background: var(--result-bg);
+  background: linear-gradient(145deg, rgb(126 25 40 / 12%), rgb(27 21 23 / 70%));
   animation: result-in 300ms cubic-bezier(.2, .8, .2, 1) both;
 }
 
+.result[hidden],
+.summary[hidden] {
+  display: none;
+}
+
 .result[data-grade="good"] {
-  --result-border: #2b7950;
-  --result-bg: rgb(26 111 67 / 13%);
-  --result-color: #62e49a;
+  border-color: #2b7950;
+  background: rgb(26 111 67 / 13%);
 }
 
 .result[data-grade="okay"] {
-  --result-border: #80631f;
-  --result-bg: rgb(153 117 25 / 13%);
-  --result-color: #f4cc61;
+  border-color: #80631f;
+  background: rgb(153 117 25 / 13%);
 }
 
 .result[data-grade="bad"] {
-  --result-border: #873342;
-  --result-bg: rgb(145 35 53 / 14%);
-  --result-color: #ff7180;
+  border-color: #873342;
+  background: rgb(145 35 53 / 14%);
 }
 
 .result-title {
-  margin: 0;
-  color: var(--result-color);
+  margin: 0 0 14px;
+  color: #ff8791;
   font-size: 1.1rem;
   font-weight: 850;
 }
 
-.result-detail {
-  margin: 6px 0 0;
-  color: #c4b9bc;
-  font-size: 0.88rem;
+.round-stats,
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.round-stats div,
+.summary-stats div {
+  display: grid;
+  gap: 5px;
+  padding: 12px 10px;
+  border: 1px solid #39272b;
+  border-radius: 12px;
+  background: rgb(16 13 14 / 48%);
+}
+
+.round-stats span,
+.summary-stats span {
+  color: #a99da0;
+  font-size: 0.69rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.round-stats strong,
+.summary-stats strong {
+  color: #f8f3f3;
+  font-size: 0.95rem;
   font-variant-numeric: tabular-nums;
+}
+
+.round-stats div:last-child strong,
+.summary-stats div:first-child strong {
+  color: #ff7480;
+}
+
+.summary {
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid #493136;
+}
+
+.summary h2 {
+  margin: 0;
+  color: #f8f3f3;
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.summary-stats {
+  margin-top: 12px;
+}
+
+.score-rule {
+  margin: 19px 0 0;
+  color: #9d9194;
+  font-size: 0.73rem;
+  line-height: 1.5;
 }
 
 .legend {

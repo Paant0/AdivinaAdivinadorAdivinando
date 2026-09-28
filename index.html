@@ -12,22 +12,38 @@
     <main class="game" id="game" tabindex="-1">
       <p class="eyebrow">Prueba de precisión</p>
       <h1>Adivina el tiempo</h1>
-      <p class="intro">Pulsa iniciar y detén el cronómetro justo en el momento indicado, el cronómetro se ocultará durante la ronda y el botón permanecerá visible para detenerlo.</p>
+      <p class="intro">Pulsa iniciar y detén el cronómetro justo en el momento indicado, el cronómetro se ocultará durante la ronda y el botón permanecerá visible para detenerlo. Completa 5 rondas: detén el cronómetro lo más cerca posible de cada tiempo objetivo.</p>
 
       <section class="target" aria-label="Tiempo objetivo">
         <p class="label">Tu objetivo</p>
-        <p class="target-time"><span id="target">5.00</span> <span>seg</span></p>
+        <p class="target-time"><span id="target">1.000</span> <span>seg</span></p>
       </section>
 
-      <p class="clock" id="clock" aria-label="Tiempo transcurrido" aria-live="off">0.00</p>
+      <p class="clock" id="clock" aria-label="Tiempo transcurrido" aria-live="off">0.000</p>
       <button class="action" id="action" type="button">Iniciar</button>
       <p class="hint" id="hint" aria-live="polite">¿La puedes clavar?</p>
 
       <section class="result" id="result" aria-live="polite" hidden>
         <p class="result-title" id="result-title"></p>
-        <p class="result-detail" id="result-detail"></p>
+        <div class="round-stats" aria-label="Resultado de la ronda">
+          <div><span>Objetivo</span><strong id="result-target"></strong></div>
+          <div><span>Tu tiempo</span><strong id="result-time"></strong></div>
+          <div><span>Diferencia</span><strong id="result-difference"></strong></div>
+          <div><span>Puntuación</span><strong id="result-score"></strong></div>
+        </div>
+
+        <section class="summary" id="summary" aria-label="Resumen de la partida" hidden>
+          <h2>Resumen de la partida</h2>
+          <div class="summary-stats">
+            <div><span>Puntuación total</span><strong id="total-score"></strong></div>
+            <div><span>Mejor ronda</span><strong id="best-round"></strong></div>
+            <div><span>Peor ronda</span><strong id="worst-round"></strong></div>
+            <div><span>Diferencia promedio</span><strong id="average-difference"></strong></div>
+          </div>
+        </section>
       </section>
 
+      <p class="score-rule">Puntuación: máximo(0, 1000 − diferencia en segundos × 1000).</p>
       <div class="legend" aria-label="Niveles de precisión">
         <span class="good"><i></i>Bien: hasta 0.10 s</span>
         <span class="okay"><i></i>Cerca: hasta 0.50 s</span>
